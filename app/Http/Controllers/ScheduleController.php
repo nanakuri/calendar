@@ -69,8 +69,8 @@ class ScheduleController extends Controller
    
     public function postMenu(Request $request)
     {
-       $result = $request->all();
-       return $result;
+        $result = Event::select('id', 'title', 'date as start')->whereBetween('date', [$start, $end])->get()->toArray();
+        echo json_encode($result);
     }
     
      
