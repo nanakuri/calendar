@@ -20,8 +20,8 @@ Route::get('/menus', "ScheduleController@getAllMenus");
 Route::get('/create', "ScheduleController@create");
 Route::post('/store', 'ScheduleController@store');
 Route::get('/post/{date}', 'ScheduleController@date');
-Route::post('/delete','ScheduleController@destroy');
-Route::post('/postmenu', 'ScheduleController@postMenu');
+Route::get('/show', 'ScheduleController@show');            
+
 
 
 });

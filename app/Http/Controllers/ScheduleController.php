@@ -25,6 +25,7 @@ class ScheduleController extends Controller
     public function getAllMenus(Menu $menu)
     {
            return $menu->all()->toJson();
+           
    }  
     
     
@@ -51,7 +52,7 @@ class ScheduleController extends Controller
 
       $menu->save();
 
-        return redirect('/create');
+        return redirect('/');
     }
      
  
@@ -60,22 +61,13 @@ class ScheduleController extends Controller
        return view('/create');
     }
     
-    public function create(Request $request)
+   
+     public function show(Request $request, Menu $menu)
     {
        return view('/show');
     }
-    
-    
    
-    public function postMenu(Request $request)
-    {
-        $result = Event::select('id', 'title', 'date as start')->whereBetween('date', [$start, $end])->get()->toArray();
-        echo json_encode($result);
-    }
     
-     
- 
- 
  
  
  
