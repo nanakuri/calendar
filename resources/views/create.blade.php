@@ -8,7 +8,7 @@
         {{Auth::user()->name}}
        <h1>Active Calendar</h1>   
        
-       <form method="POST" action="/store"  enctype="multipart/form-data">
+       <form method="POST" action="/store/{{$date}}"  enctype="multipart/form-data">
             @csrf
             <h1>新しいメニュー</h1>
             <div class="title">
@@ -24,6 +24,8 @@
             <input type="hidden" value="{{Auth::id()}}" name="user_"/>
             <p><button type="submit">登録</button></p>
         </form>
+        
+
         <div class="back">[<a href="/">back</a>]</div>
     </body>
 

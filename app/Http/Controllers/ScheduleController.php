@@ -35,18 +35,23 @@ class ScheduleController extends Controller
      *
      * @param  Request  $request
      */
-    public function store(Request $request, Menu $menu)
+    public function store(Request $request, Menu $menu ,$date)
     {  
         
+
         $menu->create_user_id=Auth::id();
+        $menu->click_date=$date;
         $menu->fill($request->input());
+        
         
       $form = $request->all();
 
       //s3アップロード開始
       $image = $request->file('video');
+      
       // バケットの`myprefix`フォルダへアップロード
-      $path = Storage::disk('s3')->putFile('nana-seven', $image, 'public');
+      $path = Storage::disk('s3')->putFile('/nana-seven', $image, 'public');
+     
       // アップロードした画像のフルパスを取得
       $menu->video = Storage::disk('s3')->url($path);
 
@@ -58,13 +63,14 @@ class ScheduleController extends Controller
  
     public function date($date)
     {
-       return view('/create');
+       
+       return view('/create')->with(['date' => $date]);
     }
     
    
-     public function show(Request $request, Menu $menu)
+     public function show(Request $request, Menu $menu )
     {
-       return view('/show');
+       return view('/show')->with(['menu'=> $menu ]);
     }
    
     

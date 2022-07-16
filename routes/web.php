@@ -17,10 +17,9 @@ Route::group(['middleware' => ['auth']], function(){
     
 Route::get("/", 'ScheduleController@schedule')->middleware('auth');
 Route::get('/menus', "ScheduleController@getAllMenus");
-Route::get('/create', "ScheduleController@create");
-Route::post('/store', 'ScheduleController@store');
+Route::post('/store/{date}', 'ScheduleController@store');
 Route::get('/post/{date}', 'ScheduleController@date');
-Route::get('/show', 'ScheduleController@show');            
+Route::get('/show/{menu}', 'ScheduleController@show');            
 
 
 

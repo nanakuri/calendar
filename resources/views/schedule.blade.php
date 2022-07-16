@@ -17,55 +17,59 @@
                
                
            var calendarEl = document.getElementById('calendar');
-           var calendar = new FullCalendar.Calendar(calendarEl, {
+           var calendar = new FullCalendar.Calendar(calendarEl, 
+           {
            
              
-             initialView: 'dayGridMonth',
-             
-             
-             header: {
-             left: "prev,next today",
-             center: "title",
-             right: "dayGridMonth,timeGridWeek,dayGridDay",
-              },
-              
-            defaultDate:'{{date('Y-m-d')}}',
-            navlink:true,
-            editable:true,
-            selectable:true,
-            eventLimit:true,
-            
-            events:function(fetchinfo, successCallback){
-              $.ajax({
-               method: "get",
-               url: "/menus",
-               dataType: "json"})
-               
-               .done((res) => {
-               let menus = res;
-               let events=[];
-               for(let i =0;i<menus.length;i++){
-                 events.push({
-                  'title':menus[i].title, 
-                  'start':menus[i].created_at
-                 });
-                }
-               successCallback(events);
-               }); 
-            },
-             
-            
-             dateClick: (e)=>{
-		       console.log("dateClick:", e);
-		       window.location.href=`/post/${e.dateStr}`;
-		     
-	         },
-	         
-	         
-	          eventClick: (e)=>{
-		       console.log("eventClick:", e.event.title);
-		       window.location.href=`/show`;
-		       },
+                 initialView: 'dayGridMonth',
+                 
+                 
+                 header: {
+                 left: "prev,next today",
+                 center: "title",
+                 right: "dayGridMonth,timeGridWeek,dayGridDay",
+                  },
+                  
+                defaultDate:'{{date('Y-m-d')}}',
+                navlink:true,
+                editable:true,
+                selectable:true,
+                eventLimit:true,
+                
+                events:function(fetchinfo, successCallback)
+                {
+                    $.ajax({
+                     method: "get",
+                     url: "/menus",
+                     dataType: "json"})
+                   
+                    .done((res) => {
+                    let date =res;
+                    let menus = res;
+                    let events=[];
+                    for(let i =0;i<menus.length;i++)
+                       {
+                           events.push({
+                            'title':menus[i].title, 
+                            'start':menus[i].click_date,
+                            'url' :`/show/${menus[i].id}`
+                         });
+                        }
+                     successCallback(events);
+                  }); 
+                },
+                 
+                
+                 dateClick: (e)=>{
+    		       console.log("dateClick:", e);
+    		       window.location.href=`/post/${e.dateStr}`;
+    	         },
+    	         
+    	         
+    	          eventClick: (e)=>{
+    		       console.log("eventClick:", e);
+    		       
+    		       },
            });
            calendar.render();
       });
