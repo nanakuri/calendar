@@ -19,7 +19,12 @@ Route::get("/", 'ScheduleController@schedule')->middleware('auth');
 Route::get('/menus', "ScheduleController@getAllMenus");
 Route::post('/store/{date}', 'ScheduleController@store');
 Route::get('/post/{date}', 'ScheduleController@date');
-Route::get('/show/{menu}', 'ScheduleController@show');            
+Route::get('/show/{menu}', 'ScheduleController@show');
+Route::delete('/show/{menu}', 'ScheduleController@delete');
+
+Route::put('/editstore/{menu}', 'ScheduleController@editstore');
+Route::get('/show/{menu}/edit', 'ScheduleController@edit');
+
 
 
 

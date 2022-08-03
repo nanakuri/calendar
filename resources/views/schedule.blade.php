@@ -3,7 +3,7 @@
  @section('content')
   
    {{Auth::user()->name}}
-<h1>Active Calendar</h1>   
+   
 <div id='calendar'></div>  
 
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.js"></script>
@@ -12,16 +12,22 @@
     <script>
 
       document.addEventListener('DOMContentLoaded', function()
-      {
-      
-               
-               
+      { 
            var calendarEl = document.getElementById('calendar');
            var calendar = new FullCalendar.Calendar(calendarEl, 
            {
            
              
                  initialView: 'dayGridMonth',
+                 
+                 locale: 'ja',
+                buttonText: {
+                    prev:     '<',
+                    next:     '>',
+                    today:    '今日',
+                    month:    '月',
+                    
+                },
                  
                  
                  header: {
@@ -30,11 +36,7 @@
                  right: "dayGridMonth,timeGridWeek,dayGridDay",
                   },
                   
-                defaultDate:'{{date('Y-m-d')}}',
-                navlink:true,
-                editable:true,
-                selectable:true,
-                eventLimit:true,
+            
                 
                 events:function(fetchinfo, successCallback)
                 {
@@ -53,29 +55,28 @@
                             'title':menus[i].title, 
                             'start':menus[i].click_date,
                             'url' :`/show/${menus[i].id}`
+                            
                          });
                         }
                      successCallback(events);
                   }); 
                 },
-                 
                 
                  dateClick: (e)=>{
     		       console.log("dateClick:", e);
     		       window.location.href=`/post/${e.dateStr}`;
     	         },
-    	         
-    	         
-    	          eventClick: (e)=>{
-    		       console.log("eventClick:", e);
-    		       
-    		       },
            });
            calendar.render();
       });
 
     </script>
       
+      <form action="{{ route('logout') }}" method="post">
+        @csrf
+        <input type="submit" value="ログアウト">
+      </form>
+
 
 
 @endsection

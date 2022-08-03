@@ -43,9 +43,7 @@
                             <label for="icon" class="col-md-4 col-form-label text-md-right">{{ __('Icon') }}</label>
 
                             <div class="col-md-6">
-                                <input id="icon"  class="form-control" name="icon" value="https://cdn.pixabay.com/photo/2016/08/18/11/00/man-1602633__340.png"  >
-
-                               
+                                <input type="file" name="icon"/>
                             </div>
                         </div>
                         

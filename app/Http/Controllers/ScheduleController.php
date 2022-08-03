@@ -56,7 +56,7 @@ class ScheduleController extends Controller
       $menu->video = Storage::disk('s3')->url($path);
 
       $menu->save();
-
+      
         return redirect('/');
     }
      
@@ -74,10 +74,47 @@ class ScheduleController extends Controller
     }
    
     
+    
+    
+     public function delete(Menu $menu)
+    {
+        $menu->delete();
+        return redirect('/');
+    }
  
  
- 
- 
+     public function edit(Menu $menu)
+    {
+        return view('/edit')->with(['menu' => $menu]);
+    }
+    
+    
+     public function editstore(Request $request, Menu $menu)
+    {  
+        
+      $menu->fill($request->input());
+        
+        
+      $input_form = $request->all();
+
+      //s3アップロード開始
+      $input_image = $request->file('video');
+      
+      // バケットの`myprefix`フォルダへアップロード
+      $input_path = Storage::disk('s3')->putFile('/nana-seven', $input_image, 'public');
+     
+      // アップロードした画像のフルパスを取得
+      $menu->video = Storage::disk('s3')->url($input_path);
+
+      $menu->save();
+
+        return redirect('/show/' .$menu->id);
+        
+    }
+    
+    
+    
+    
  
  
 }
