@@ -6,6 +6,8 @@ use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Http\Request;
 use Database\migrations;
 use App\Menu;
+use App\User;
+use App\Create_menu;
 use App\Models;
 use Storage;
 use Auth;
@@ -28,20 +30,12 @@ class ScheduleController extends Controller
            
    }  
     
-    
-   
-    /**
-     * イベントを登録
-     *
-     * @param  Request  $request
-     */
-    public function store(Request $request, Menu $menu ,$date)
-    {  
-        
-
-        $menu->create_user_id=Auth::id();
+    public function store(Request $request, Menu $menu , $date)
+    { 
+        $menu->user_id=Auth::id();
         $menu->click_date=$date;
         $menu->fill($request->input());
+       
         
         
       $form = $request->all();
@@ -57,7 +51,7 @@ class ScheduleController extends Controller
 
       $menu->save();
       
-        return redirect('/');
+        return redirect('/' );
     }
      
  
@@ -68,9 +62,12 @@ class ScheduleController extends Controller
     }
     
    
-     public function show(Request $request, Menu $menu )
+     public function show(Request $request, Menu $menu ,User $user)
     {
-       return view('/show')->with(['menu'=> $menu ]);
+        $user_name = $menu->user->name;
+       
+       
+       return view('/show')->with(['menu'=> $menu , 'user' => $user->get() ,'user_name' => $user_name] );
     }
    
     

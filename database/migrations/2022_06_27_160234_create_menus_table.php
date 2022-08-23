@@ -20,7 +20,9 @@ class CreateMenusTable extends Migration
             $table->string('content');
             $table->string('video');
             $table->boolean('checkbox')->default(false);
-            $table->bigInteger('create_user_id')->unsigned();
+            $table->string('color');
+            $table->bigInteger('user_id')->unsigned();
+            
             $table->timestamps();
         });
     }

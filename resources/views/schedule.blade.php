@@ -2,7 +2,7 @@
 
  @section('content')
   
-   {{Auth::user()->name}}
+  
    
 <div id='calendar'></div>  
 
@@ -36,7 +36,7 @@
                  right: "dayGridMonth,timeGridWeek,dayGridDay",
                   },
                   
-            
+                
                 
                 events:function(fetchinfo, successCallback)
                 {
@@ -52,25 +52,42 @@
                     for(let i =0;i<menus.length;i++)
                        {
                            events.push({
+                            'id':menus[i].id,
                             'title':menus[i].title, 
                             'start':menus[i].click_date,
-                            'url' :`/show/${menus[i].id}`
+                            'url' :`/show/${menus[i].id}`,
+                            'backgroundColor':menus[i].color,
+                            'borderColor':menus[i].color
                             
                          });
                         }
+                        
+                        
                      successCallback(events);
+                     
+                     
                   }); 
                 },
+                
                 
                  dateClick: (e)=>{
     		       console.log("dateClick:", e);
     		       window.location.href=`/post/${e.dateStr}`;
     	         },
+    	         
+    	        
+                     
+                  
+    	         
            });
            calendar.render();
       });
+      
+     
 
     </script>
+      
+     
       
       <form action="{{ route('logout') }}" method="post">
         @csrf

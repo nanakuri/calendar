@@ -1,0 +1,38 @@
+                .menu_title{
+                    color:orange;
+                    font-size:20px;
+                   
+                    border-bottom: double 6px orange;
+                }
+                
+                .menu_content{
+                    color:orange;
+                    font-size:20px;
+                   
+                    border-bottom: double 6px orange;
+                }
+                
+                .menu_video{
+                    color:orange;
+                    font-size:20px;
+                   
+                    border-bottom: double 6px orange;
+                }
+                
+                .menu_check{
+                    color:orange;
+                    font-size:20px;
+                   
+                    border-bottom: double 6px orange;
+                }
+                
+                .menu_user{
+                    color:orange;
+                    font-size:20px;
+                   
+                    border-bottom: double 6px orange;
+                }
+             
+                .content{
+                      white-space: pre;
+                  }

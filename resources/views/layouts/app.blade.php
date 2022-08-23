@@ -18,6 +18,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=BioRhyme+Expanded" rel="stylesheet">
+    
    
     
 
@@ -25,7 +26,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.5.0/main.min.css">
-    
+    <link rel="stylesheet" href="{{ asset('/css/style.css')  }}" >
     
 
    
@@ -38,12 +39,7 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 
-                <style>
-                    .navbar-brand{
-                        font-family:'Caveat', cursive;
-                        font-size:  30px;
-                    }
-                </style>
+                
                 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -60,11 +56,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
                                 </li>
                             @endif
                         @else
@@ -89,6 +85,21 @@
                     </ul>
                 </div>
             </div>
+            
+            <style>
+                   body{
+                        background-color:#FFF4E1;
+                       
+                    }
+                    
+                    
+                    .navbar-brand{
+                        font-family:'Caveat', cursive;
+                        font-size:  30px;
+                        color:#FFFFFF;
+                       
+                    }
+                </style>
         </nav>
 
         <main class="py-4">
@@ -98,6 +109,9 @@
 </body>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+
+
 </html>
 
 

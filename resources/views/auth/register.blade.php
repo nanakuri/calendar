@@ -92,4 +92,40 @@
         </div>
     </div>
 </div>
+
+<style>
+    
+.card {
+    display: block;
+    background-color:#FFF4E1;
+}
+
+
+
+body {
+  background:#9DDCDC;
+}
+
+
+
+.btn_btn-primary {
+  position:relative;
+  width:60%;
+  padding:20px;
+  border-radius:6px;
+  border:0;
+  background:#E67A7A;
+  font-size:1.2em;
+  color:#fff;
+  text-shadow:1px 1px 0px rgba(0,0,0,.1);
+  box-shadow:0px 3px 0px #c1524e;
+}
+
+.btn:active {
+  top:3px;
+  box-shadow:none;
+}
+
+
+</style>
 @endsection
