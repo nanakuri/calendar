@@ -88,13 +88,25 @@
             
             <style>
                    body{
-                        background-color:#FFF4E1;
+                       background-color:#f2f2f2;
                        
                     }
                     
+                   
+                    .fc-col-header{
+                       background-color:white;
+                       font-size:  100px;
+                       }
+                    
+                    .fc-toolbar-title{
+                        font-family:'impact';
+                        font-size:  100px;
+                        
+                        
+                    }
                     
                     .navbar-brand{
-                        font-family:'Caveat', cursive;
+                        font-family:'impact';
                         font-size:  30px;
                         color:#FFFFFF;
                        

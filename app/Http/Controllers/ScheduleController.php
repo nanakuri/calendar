@@ -109,8 +109,29 @@ class ScheduleController extends Controller
         
     }
     
+     public function check(Request $request, Menu $menu)
+    {  
+        $check=$request->checkbox;
+        $menu->checkbox=$check;
+        $menu->save();
+        
+        
+      return redirect('/show/' .$menu->id );  
+        
+    }
     
     
+    public function send()
+    {
+
+    	$data = [];
+    	dd($data);
+
+    	Mail::send('emails.test', $data, function($message){
+    	    $message->to('abc987@example.com', 'Test')->subject('This is a test mail');
+    	});
+    	
+    }
     
  
  

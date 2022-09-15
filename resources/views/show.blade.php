@@ -10,27 +10,30 @@
         
         
         <div class='menu'>
-            <span class= menu_title>タイトル</span><br><br>
+            <span class= menu_title>Title</span><br><br>
             <h2 class='title'>{{$menu->title}}</h2><br>
-            <span class= menu_content>今日のメニュー</span><br><br>
+            <span class= menu_content>Menu</span><br><br>
             <p class='content'>{{$menu->content}}</p>
            
-            <span class= menu_video>参考動画</span><br>
+            <span class= menu_video>Video</span><br>
 　　　　　　<video controls width="600" height="600" src="{{$menu->video}}"></video>
 　　　　　　
-　　　　　　<p><span class= menu_check>出席確認</span></p>
+　　　　　　<p><span class= menu_check>Check</span></p>
 　　　　　　
-            <p><form>
-                 @csrf
-                @method('PUT')
-               
-                <label><input type="checkbox" id="chk" value="{{$user_name}}"/>終わった！！
-            </label>
-           
-           <br><p>終わった人 <span id="span"></span></p>
+            <p><form method="POST" action="/check/{{$menu->id}}"  enctype="multipart/form-data" >
+                    @csrf
+                       
+                    <label>
+                        <input type="hidden" name="checkbox" value="0">
+                        <input type="checkbox" name="checkbox" value="1" {{ $menu->checkbox == "1"? 'checked="checked"' : '0' }}/>終わった！！
+                    </label>
+                    <button type="submit">登録</button>
+                   
+                  
+                   <br><p>終わった人 <span id="span"></span></p>
             </form></p>
             
-            <span class= menu_user>作成者</span><br><br>
+            <span class= menu_user>Create</span><br><br>
             <p class='user_id'>{{$user_name}}</p>
             
             
@@ -49,9 +52,12 @@
         <div class="back">[<a href="/">戻る</a>]</div>
         
         
-         <script>
+        
+         <!--<script>
               var chk = document.getElementById("chk");
               var spn = document.getElementById("span");
+            
+            
             
               chk.addEventListener("click", function (e) {
                 if (chk.checked) {
@@ -59,10 +65,13 @@
                 } else {
                   spn.textContent = "";
                   
+                
                  
                 }
+                 
               });
-        </script>
+        </script>-->
+        
     </body>
 
 @endsection

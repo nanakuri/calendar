@@ -1,38 +1,44 @@
                 .menu_title{
-                    color:orange;
+                    font-family:'impact';
                     font-size:20px;
                    
-                    border-bottom: double 6px orange;
+                    
                 }
                 
                 .menu_content{
-                    color:orange;
+                    font-family:'impact';
                     font-size:20px;
                    
-                    border-bottom: double 6px orange;
+                    
                 }
                 
+                
                 .menu_video{
-                    color:orange;
+                    font-family:'impact';
                     font-size:20px;
                    
-                    border-bottom: double 6px orange;
+                    
                 }
                 
                 .menu_check{
-                    color:orange;
+                    font-family:'impact';
                     font-size:20px;
                    
-                    border-bottom: double 6px orange;
+                    
                 }
                 
                 .menu_user{
-                    color:orange;
+                    font-family:'impact';
                     font-size:20px;
                    
-                    border-bottom: double 6px orange;
+                    
                 }
-             
-                .content{
-                      white-space: pre;
-                  }
+                
+                .menu_color{
+                    font-family:'impact';
+                    font-size:20px;
+                   
+                    
+                }
+                
+                

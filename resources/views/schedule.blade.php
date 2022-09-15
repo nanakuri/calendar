@@ -17,8 +17,16 @@
            var calendar = new FullCalendar.Calendar(calendarEl, 
            {
            
-             
-                 initialView: 'dayGridMonth',
+                
+                 views: {
+                    dayGridMonth: {
+                      titleFormat: { year: 'numeric', month: 'numeric' },
+                      
+                      //ja表記やけどnumericで数字に変えた
+                      
+                    },
+                    
+                    },
                  
                  locale: 'ja',
                 buttonText: {
@@ -29,6 +37,11 @@
                     
                 },
                  
+                 
+                 dayCellContent: function(e) {
+                   e.dayNumberText = e.dayNumberText.replace('日', '');
+                  },
+                  //日付の"日"表示をなくした
                  
                  header: {
                  left: "prev,next today",
@@ -86,6 +99,13 @@
      
 
     </script>
+    
+    <style>
+        .fc-view-harness{
+            font-family:'impact';
+            font-color:black;
+        }
+    </style>
       
      
       
@@ -97,3 +117,5 @@
 
 
 @endsection
+
+

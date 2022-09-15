@@ -79,7 +79,9 @@
     background-color:#FFF4E1;
 }
 
-
+.card-header{
+    font-family:'impact';
+}
 
 body {
   background:#9DDCDC;
