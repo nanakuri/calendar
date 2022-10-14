@@ -11,12 +11,12 @@ use Illuminate\Database\Eloquent\Model;
 class Menu extends Model
 {
     
-    protected $fillable = ['title', 'content', 'video','checkbox','color', 'user_id'];
+    protected $fillable = ['title', 'content', 'video','color', 'user_id'];
     
     
     public function user()   
-{
-    return $this->belongsTo('App\user');  
-}
+    {
+        return $this->belongsToMany('App\user');  
+    }
 }
 

@@ -18,8 +18,7 @@ class CreateMenusTable extends Migration
             $table->date('click_date');
             $table->string('title');
             $table->string('content');
-            $table->string('video');
-            $table->boolean('checkbox')->default(false);
+            $table->string('video')->nullable();
             $table->string('color');
             $table->bigInteger('user_id')->unsigned();
             

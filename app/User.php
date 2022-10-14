@@ -37,8 +37,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
-    public function menu()   
-{
-    return $this->hasMany('App\menu');  
-}
+    
+    
+        public function menu()   
+    {
+        return $this->belongsToMany('App\menu')->withTimestamps();  
+    }
+    
 }

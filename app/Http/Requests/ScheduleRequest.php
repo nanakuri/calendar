@@ -11,6 +11,8 @@ class ScheduleRequest extends FormRequest
      *
      * @return bool
      */
+    
+    
     public function authorize()
     {
         return true;
@@ -27,8 +29,7 @@ class ScheduleRequest extends FormRequest
         return [
             'title' => 'required|string|max:100',
             'content' => 'required|string|max:4000',
-            'video'=>'nullable',
-            'user_id'=>'required|integer'
+            'video'=>'nullable'
         ];
     }
 }

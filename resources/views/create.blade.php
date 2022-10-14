@@ -14,15 +14,20 @@
                 <h1>New Menu</h1><br>
                 <div class="title">
                     <h3>Title</h3>
-                    <input type="text" name="title">
+                    <input type="text" name="title" value="{{ old('title') }}">
+                    <p class="title__error" style="color:red">{{ $errors->first('title') }}</p>
                 </div><br>
+                
                 <div class="body">
                     <h3>Menu</h3>
-                    <textarea name="content" rows"10" cols"10" placeholder="腹筋1000回、スクワット1000回　"></textarea>
+                    <textarea name="content" rows"10" cols"10" placeholder="腹筋1000回、スクワット1000回　" value="{{ old('content') }}"></textarea>
+                    
+                    <p class="menu__error" style="color:red">{{ $errors->first('content') }}</p>
                 </div><br>
             
                 <h3 class= video>Video</h3>
                 <input type="file" name="video"/><br>
+                
                 
                 <input type="hidden" value="{{Auth::id()}}" name="user_"/><br><br>
           </div>
@@ -36,9 +41,12 @@
                     <input type="radio" name="color" value="orange" />orange
                     <input type="radio" name="color" value="pink" />pink
                 </div>
+               <p class="color__error" style="color:red">{{ $errors->first('menu_color') }}</p>
+               <br><br>
                
             
-                <p><button type="submit">登録</button></p>
+                <input type="submit" value="登録"> <input type="reset" value="リセット">
+                
             
                 <div class="back">[<a href="/">戻る</a>]</div>
             
